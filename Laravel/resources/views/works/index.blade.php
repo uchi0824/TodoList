@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>React Sample</title>
-</head>
-<body>
-<div id="example"></div>
-<script src="{{asset('/js/app.js')}}"></script>
-</body>
-</html>
+
+<p>uchimura</p>
+@can('admin')
+<a href="{{ route('users.index')}}">ユーザー編集</a>
+@endcan
+<a class="nav-link" href="{{ route('logout')}}">ログアウト</a>
