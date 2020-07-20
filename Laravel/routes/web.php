@@ -13,16 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/login', 'LoginController@index')->name('login');
-Route::post('/login', 'LoginController@postAuth')->name('postAuth');
-
-Route::group(['middleware' => ['auth']], function () {
-Route::get('/logout', 'LoginController@logout')->name('logout');
-Route::get('/works', 'WorksController@index')->name('works');
-
-Route::group(['middleware' => ['can:admin']], function () {
-Route::resource('users', 'UsersController')->except(['show']);
+Route::get('/', function () {
+    return view('welcome');
 });
-});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/test', 'TestController@index')->name('test');
 
