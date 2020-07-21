@@ -65804,6 +65804,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
 
+__webpack_require__(/*! ./components/Todo */ "./resources/js/components/Todo.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -65888,6 +65890,17 @@ function Example() {
 if (document.getElementById('example')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Example, null), document.getElementById('example'));
 }
+
+/***/ }),
+
+/***/ "./resources/js/components/Todo.js":
+/*!*****************************************!*\
+  !*** ./resources/js/components/Todo.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/vagrant/code/laravel/resources/js/components/Todo.js: Unexpected token (37:0)\n\n\u001b[0m \u001b[90m 35 | \u001b[39m    }\u001b[0m\n\u001b[0m \u001b[90m 36 | \u001b[39m}\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 | \u001b[39m}\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 38 | \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 39 | \u001b[39m\u001b[36mif\u001b[39m (document\u001b[33m.\u001b[39mgetElementById(\u001b[32m'todo'\u001b[39m)) {\u001b[0m\n\u001b[0m \u001b[90m 40 | \u001b[39m    \u001b[33mReactDOM\u001b[39m\u001b[33m.\u001b[39mrender(\u001b[33m<\u001b[39m\u001b[33mTodo\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\u001b[33m,\u001b[39m document\u001b[33m.\u001b[39mgetElementById(\u001b[32m'todo'\u001b[39m))\u001b[33m;\u001b[39m\u001b[0m\n    at Object._raise (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:757:17)\n    at Object.raiseWithData (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:750:17)\n    at Object.raise (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:744:17)\n    at Object.unexpected (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:8834:16)\n    at Object.parseExprAtom (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:10176:20)\n    at Object.parseExprAtom (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:4648:20)\n    at Object.parseExprSubscripts (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:9688:23)\n    at Object.parseMaybeUnary (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:9668:21)\n    at Object.parseExprOps (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:9538:23)\n    at Object.parseMaybeConditional (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:9511:23)\n    at Object.parseMaybeAssign (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:9466:21)\n    at Object.parseExpression (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:9418:23)\n    at Object.parseStatementContent (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:11339:23)\n    at Object.parseStatement (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:11210:17)\n    at Object.parseBlockOrModuleBlockBody (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:11785:25)\n    at Object.parseBlockBody (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:11771:10)\n    at Object.parseTopLevel (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:11141:10)\n    at Object.parse (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:12843:10)\n    at parse (/home/vagrant/code/laravel/node_modules/@babel/parser/lib/index.js:12896:38)\n    at parser (/home/vagrant/code/laravel/node_modules/@babel/core/lib/parser/index.js:54:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/home/vagrant/code/laravel/node_modules/@babel/core/lib/transformation/normalize-file.js:93:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/home/vagrant/code/laravel/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at Function.transform (/home/vagrant/code/laravel/node_modules/@babel/core/lib/transform.js:27:41)\n    at transform.next (<anonymous>)\n    at step (/home/vagrant/code/laravel/node_modules/gensync/index.js:254:32)\n    at /home/vagrant/code/laravel/node_modules/gensync/index.js:266:13\n    at async.call.result.err.err (/home/vagrant/code/laravel/node_modules/gensync/index.js:216:11)");
 
 /***/ }),
 
