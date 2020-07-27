@@ -34,8 +34,8 @@ export default class Todo extends Component {
         );
     }
 }
-}
 
-if (document.getElementById('todo')) {
-    ReactDOM.render(<Todo />, document.getElementById('todo'));
+
+if (document.getElementById('example')) {
+    ReactDOM.render(<Todo />, document.getElementById('example'));
 }
