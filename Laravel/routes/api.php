@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('todo', 'API\TodoController@index');
+Route::resource('todo', 'API\TodoController');

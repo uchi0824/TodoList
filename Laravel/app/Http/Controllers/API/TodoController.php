@@ -26,18 +26,21 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $todo = new Todo;
+        $todo->title = $request->title;
+        $todo->status = STATUS_DO;
+        $todo->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Todo $todo
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Todo $todo)
     {
-        //
+        return $todo;
     }
 
     /**
