@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <script src="{{asset('/js/components/Todo.js')}}"></script>
                 </div>
             </div>
         </div>
