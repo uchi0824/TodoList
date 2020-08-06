@@ -18,6 +18,7 @@
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.13",
         "popper.js": "^1.12",
+        "prettier": "^2.0.5",
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
         "resolve-url-loader": "^3.1.0",
@@ -25,6 +26,8 @@
         "sass-loader": "^8.0.0"
     },
     "dependencies": {
-        "@material-ui/core": "^4.11.0"
+        "@material-ui/core": "^4.11.0",
+        "react-hook-form": "^6.2.0",
+        "swr": "^0.3.0"
     }
 }

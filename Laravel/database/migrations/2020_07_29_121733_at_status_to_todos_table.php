@@ -15,6 +15,8 @@ class AtStatusToTodosTable extends Migration
     {
         Schema::table('todos', function (Blueprint $table) {
             $table->integer('status')->unsigned();
+            $table->date('deadline');
+            $table->softDeletes();
         });
     }
 

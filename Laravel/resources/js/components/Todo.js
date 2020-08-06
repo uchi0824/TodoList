@@ -1,44 +1,75 @@
-import React,{useState,useEffect} from 'react';
-import ReactDOM from 'react-dom';
-import axios from "axios";
-import {TestButton as Btna} from './testbutton';
+import React, { useState } from 'react'
+import ReactDOM from 'react-dom'
+import axios from 'axios'
+import useSWR from 'swr'
 
-export default function Todo() {
-    const [todo,setTodo] = useState([]);
+export const Todo = ({ todo }) => {
+    const [title, setTitle] = useState(todo.title)
+    const [status, setStatus] = useState(todo.status)
+    const [deadline, setDeadline] = useState(todo.deadline)
 
-    // axios
-    //     .get('/api/todo')
-    //     .then(response => {
-    //         setTodo(response.data);
+    const onUpdateTitle = () => {
+        fetch(`/api/todo/${todo.id}`, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ title }),
+        })
+    }
 
+    const onUpdateDeadline = () => {
+        fetch(`/api/todo/${todo.id}`, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ deadline }),
+        })
+    }
 
-    //     }).catch(error => {
-    //         console.log(error);
-    //     });
+    const onUpdateStatus = () => {
+        fetch(`/api/todo/${todo.id}`, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ status: status === 2 ? 1 : 2 }),
+        })
+    }
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const res = await axios.get('/api/todo');
-            setTodo(res.data);
-        };
-
-        fetchData();
-      }, []);
+    const onDelete = () => {
+        alert('Delete!')
+        fetch(`/api/todo/${todo.id}`, { method: 'DELETE' }).then((res) => {
+            console.log(res)
+            window.location.reload()
+        })
+    }
 
     return (
-        <div>fuga
-            <ul className="todo-list">
-                {todo.map((item) => {
-                    return <li key={item.id}>{item.title}</li>;
-                })}
-            </ul>
-            <Btna text="uchi"></Btna>
-            <Btna text="yoshi"></Btna>
+        <div>
+            <input
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
+                onBlur={onUpdateTitle}
+            />
+            <p>
+                {todo.status},{todo.deadline}
+            </p>
+            <input
+                type="checkbox"
+                checked={status === 2}
+                onChange={() => {
+                    setStatus(status === 2 ? 1 : 2)
+                    onUpdateStatus()
+                }}
+            ></input>
+            <div>
+                <button onClick={onDelete}>{'Delete'}</button>
+            </div>
         </div>
-    );
-}
-
-
-if (document.getElementById('example')) {
-    ReactDOM.render(<Todo />, document.getElementById('example'));
+    )
 }
