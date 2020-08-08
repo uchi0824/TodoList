@@ -56,9 +56,12 @@ export const Todo = ({ todo }) => {
                 onChange={(event) => setTitle(event.target.value)}
                 onBlur={onUpdateTitle}
             />
-            <p>
-                {todo.status},{todo.deadline}
-            </p>
+            <input
+                type="date"
+                value={deadline}
+                onChange={(event) => setDeadline(event.target.value)}
+                onBlur={onUpdateDeadline}
+            />
             <input
                 type="checkbox"
                 checked={status === 2}

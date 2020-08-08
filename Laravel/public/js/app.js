@@ -67993,7 +67993,14 @@ var Todo = function Todo(_ref) {
       return setTitle(event.target.value);
     },
     onBlur: onUpdateTitle
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, todo.status, ",", todo.deadline), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "date",
+    value: deadline,
+    onChange: function onChange(event) {
+      return setDeadline(event.target.value);
+    },
+    onBlur: onUpdateDeadline
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "checkbox",
     checked: status === 2,
     onChange: function onChange() {
@@ -68107,16 +68114,16 @@ var TodoCreate = function TodoCreate() {
   }();
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+    value: title,
+    onChange: function onChange(event) {
+      return setTitle(event.target.value);
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
     type: "date",
     name: "deadline",
     value: deadline,
     onChange: function onChange(event) {
       return setDeadline(event.target.value);
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-    value: title,
-    onChange: function onChange(event) {
-      return setTitle(event.target.value);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     onClick: onCreate,

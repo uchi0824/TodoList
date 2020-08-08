@@ -29,15 +29,15 @@ export const TodoCreate = () => {
         <div>
             <div>
                 <input
+                    value={title}
+                    onChange={(event) => setTitle(event.target.value)}
+                />
+                <input
                     type="date"
                     name="deadline"
                     value={deadline}
                     onChange={(event) => setDeadline(event.target.value)}
                 ></input>
-                <input
-                    value={title}
-                    onChange={(event) => setTitle(event.target.value)}
-                />
                 <button onClick={onCreate} disabled={title.length < 1}>
                     {'Create'}
                 </button>

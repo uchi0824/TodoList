@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TodoEditRequest;
 use App\Http\Requests\TodoRequest;
 use App\Todo;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
@@ -29,8 +31,9 @@ class TodoController extends Controller
     public function store(TodoRequest $request)
     {
         $todo        = new Todo;
+        $user        = Auth::User();
         $todo->title = $request->title;
-        // $todo->user_id  = Auth::id();
+        // $todo->user_id  = $user->id;
         $todo->status   = config('consts.todo.STATUS_DO');
         $todo->deadline = $request->deadline;
         $todo->save();

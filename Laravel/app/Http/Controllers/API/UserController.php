@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -47,10 +48,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(User $user, $id)
+    public function passwordUpdate(User $user, $id)
     {
-        $user->name = $request->input('name');
-
         if ($request->input('password') != '') {
             $user->password = Hash::make($request->input('password'));
         }
@@ -66,6 +65,10 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        // $user->delete();ログアウト後に処理
+        // ログアウト後に処理
+        $user = Auth::user();
+
+        Auth::logout();
+        $user->delete();
     }
 }
