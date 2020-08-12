@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TodoEditRequest;
 use App\Http\Requests\TodoRequest;
 use App\Todo;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,9 +16,15 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Todo::all();
+        $is_public = $request->boolean('is_public');
+        if ($is_public) {
+            return Todo::all();
+        }
+        $id = Auth::id();
+
+        return Todo::where('user_id', $id)->get();
     }
 
     /**
@@ -30,10 +35,9 @@ class TodoController extends Controller
      */
     public function store(TodoRequest $request)
     {
-        $todo        = new Todo;
-        $user        = Auth::User();
-        $todo->title = $request->title;
-        // $todo->user_id  = $user->id;
+        $todo           = new Todo;
+        $todo->title    = $request->title;
+        $todo->user_id  = Auth::id();
         $todo->status   = config('consts.todo.STATUS_DO');
         $todo->deadline = $request->deadline;
         $todo->save();
