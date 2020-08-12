@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
@@ -35,4 +36,10 @@ export default function UserPage() {
 
 if (document.getElementById('example')) {
     ReactDOM.render(<UserPage />, document.getElementById('example'))
+=======
+import React from 'react'
+
+export const UserPage = () => {
+  return <p className={'text-orange-400'}>{'Hi, here is user page'}</p>
+>>>>>>> feature/uchi
 }
