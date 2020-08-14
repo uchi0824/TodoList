@@ -24,3 +24,6 @@ Auth::routes();
 Route::get('/user', function () {
     return view('home');
 });
+Route::get('/user/private', function () {
+    return view('home');
+});

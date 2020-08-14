@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TodoEditRequest;
 use App\Http\Requests\TodoRequest;
 use App\Todo;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,15 +17,16 @@ class TodoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, Todo $todo)
     {
-        $is_public = $request->boolean('is_public');
-        if ($is_public) {
-            return Todo::all();
-        }
-        $id = Auth::id();
+        // $is_member = $request->boolean('is_member');
 
-        return Todo::where('user_id', $id)->get();
+        // if ($is_member) {
+        return Todo::where('is_public', 1)
+            ->orderBy('status', 'asc')
+            ->orderBy('deadline', 'asc')->get();
+        // }
+
     }
 
     /**
@@ -35,11 +37,14 @@ class TodoController extends Controller
      */
     public function store(TodoRequest $request)
     {
-        $todo           = new Todo;
-        $todo->title    = $request->title;
-        $todo->user_id  = Auth::id();
-        $todo->status   = config('consts.todo.STATUS_DO');
-        $todo->deadline = $request->deadline;
+        $user            = Auth::User();
+        $todo            = new Todo;
+        $todo->title     = $request->title;
+        $todo->user_id   = $user->id;
+        $todo->user_name = $user->name;
+        $todo->status    = config('consts.todo.STATUS_DO');
+        $todo->deadline  = $request->deadline;
+        $todo->is_public = $request->is_public;
         $todo->save();
         return $todo;
     }
@@ -48,11 +53,12 @@ class TodoController extends Controller
      * Display the specified resource.
      *
      * @param  Todo $todo
+     * @param  User $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Todo $todo)
+    public function show(Todo $todo, User $user)
     {
-        return $todo;
+
     }
 
     /**
