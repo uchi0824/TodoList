@@ -4,19 +4,20 @@ import axios from 'axios'
 import useSWR from 'swr'
 
 export const TodoCreate = () => {
+  const [isPublic, setIsPublic] = useState('1')
   const [title, setTitle] = useState('')
   const [deadline, setDeadline] = useState('')
 
   const onCreate = async () => {
     try {
-      console.log(title, deadline)
+      console.log(isPublic, title, deadline)
       const res = await fetch(`/api/todo`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ title, deadline }),
+        body: JSON.stringify({ is_public: isPublic, title, deadline }),
       })
       // window.location.reload()
       console.log(res)
@@ -28,6 +29,22 @@ export const TodoCreate = () => {
   return (
     <div>
       <div>
+        <label>
+          <input
+            type="radio"
+            checked={isPublic === '0'}
+            onChange={() => setIsPublic('0')}
+          />
+          {'非公開'}
+        </label>
+        <label>
+          <input
+            type="radio"
+            checked={isPublic === '1'}
+            onChange={() => setIsPublic('1')}
+          />
+          {'公開'}
+        </label>
         <input
           value={title}
           onChange={(event) => setTitle(event.target.value)}

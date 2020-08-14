@@ -58,16 +58,19 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="/user">
-                                        {{ __('Account') }}
-                                    </a>
                                     <a class="dropdown-item" href="/">
                                         {{ __('Todolist') }}
+                                    </a>
+                                    <a class="dropdown-item" href="/user/private">
+                                        {{ __('Todolist（非公開）') }}
+                                    </a>
+                                    <a class="dropdown-item" href="/user">
+                                        {{ __('パスワード変更') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('ログアウト') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

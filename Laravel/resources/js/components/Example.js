@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { TodoPage } from './TodoPage'
 import { UserPage } from './UserPage'
+import { TodoPrivatePage } from './TodoPrivatePage'
 
-// https://reactrouter.com/web/guides/quick-start
 function Example() {
   return (
     <BrowserRouter>
@@ -14,6 +14,9 @@ function Example() {
         </Route>
         <Route exact path={'/user'}>
           <UserPage />
+        </Route>
+        <Route exact path={'/user/private'}>
+          <TodoPrivatePage />
         </Route>
       </Switch>
     </BrowserRouter>

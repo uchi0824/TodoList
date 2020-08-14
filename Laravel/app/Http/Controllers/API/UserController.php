@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Todo;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -16,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        return Auth::user();
     }
 
     /**
@@ -38,7 +40,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $id = Auth::id();
+
+        return Todo::where('is_public', 0)
+            ->where('user_id', $id)
+            ->orderBy('status', 'asc')
+            ->orderBy('deadline', 'asc')->get();
     }
 
     /**
@@ -48,7 +55,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function passwordUpdate(User $user, $id)
+    public function update(Request $request, User $user)
     {
         if ($request->input('password') != '') {
             $user->password = Hash::make($request->input('password'));
