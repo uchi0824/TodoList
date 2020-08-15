@@ -72048,7 +72048,7 @@ var Todo = function Todo(_ref) {
     });
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: 'text-orange-400'
   }, user_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     value: title,
@@ -72057,6 +72057,7 @@ var Todo = function Todo(_ref) {
     },
     onBlur: onUpdateTitle
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "ml-2",
     type: "date",
     value: deadline,
     onChange: function onChange(event) {
@@ -72064,15 +72065,17 @@ var Todo = function Todo(_ref) {
     },
     onBlur: onUpdateDeadline
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: 'ml-4',
     type: "checkbox",
     checked: status === 2,
     onChange: function onChange() {
       setStatus(status === 2 ? 1 : 2);
       onUpdateStatus();
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: 'border rounded-full bg-red-500 px-4 hover:bg-red-500 hover:text-white ml-4',
     onClick: onDelete
-  }, 'Delete')));
+  }, '削除')));
 };
 
 /***/ }),
@@ -72195,11 +72198,13 @@ var TodoCreate = function TodoCreate() {
       return setIsPublic('1');
     }
   }), '公開'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+    className: "ml-2",
     value: title,
     onChange: function onChange(event) {
       return setTitle(event.target.value);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+    className: "ml-2",
     type: "date",
     name: "deadline",
     value: deadline,
@@ -72260,7 +72265,11 @@ var TodoPage = function TodoPage() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, 'empty...');
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TodoCreate__WEBPACK_IMPORTED_MODULE_5__["TodoCreate"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, todos.map(function (todo) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: 'mb-4'
+  }, "\u65B0\u898FToDo\u4F5C\u6210"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TodoCreate__WEBPACK_IMPORTED_MODULE_5__["TodoCreate"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: 'mb-3 mt-3'
+  }, "ToDoList"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, todos.map(function (todo) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       key: todo.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Todo__WEBPACK_IMPORTED_MODULE_4__["Todo"], {
@@ -72318,6 +72327,126 @@ var TodoPrivatePage = function TodoPrivatePage() {
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "./resources/js/components/User.js":
+/*!*****************************************!*\
+  !*** ./resources/js/components/User.js ***!
+  \*****************************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+var User = function User(_ref) {
+  var user = _ref.user;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(user.name),
+      _useState2 = _slicedToArray(_useState, 2),
+      name = _useState2[0],
+      setName = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      password = _useState4[0],
+      setPassword = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      confirmPassword = _useState6[0],
+      setConfirmPassword = _useState6[1];
+
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      currentPassword = _useState8[0],
+      setCurrentPassword = _useState8[1];
+
+  var onUpdatePassword = function onUpdatePassword() {
+    if (password !== confirmPassword) {
+      alert('パスワードが一致しません');
+      return;
+    }
+
+    if (password === '' || confirmPassword === '' || currentPassword === '') {
+      alert('パスワードが入力されていません');
+      return;
+    }
+
+    fetch("/api/user/".concat(user.id), {
+      method: 'PUT',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        password: password,
+        confirmPassword: confirmPassword,
+        currentPassword: currentPassword
+      })
+    });
+  };
+
+  var onDelete = function onDelete() {
+    var result = window.confirm('削除しますか？');
+    if (!result) return;
+    fetch("/api/user/".concat(user.id), {
+      method: 'DELETE'
+    }).then(function (res) {
+      console.log(res);
+      window.location.reload();
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "mb-3"
+  }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u66F4\u65B0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    value: currentPassword,
+    onChange: function onChange(event) {
+      return setCurrentPassword(event.target.value);
+    },
+    placeholder: '現在のパスワード'
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "ml-2",
+    value: password,
+    onChange: function onChange(event) {
+      return setPassword(event.target.value);
+    },
+    placeholder: '新しいパスワード'
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "ml-2",
+    value: confirmPassword,
+    onChange: function onChange(event) {
+      return setConfirmPassword(event.target.value);
+    },
+    placeholder: '新しいパスワード(確認用)'
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: 'border rounded-full bg-blue-500  px-4 hover:bg-blue-500 hover:text-white ml-4',
+    onClick: onUpdatePassword
+  }, '更新')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: 'border rounded-full bg-red-500 px-4 hover:bg-red-600 hover:text-white mt-4',
+    onClick: onDelete
+  }, 'アカウントを削除')));
+};
+
+/***/ }),
+
+>>>>>>> feature/uchi
 /***/ "./resources/js/components/UserPage.js":
 /*!*********************************************!*\
   !*** ./resources/js/components/UserPage.js ***!

@@ -46,10 +46,12 @@ export const TodoCreate = () => {
           {'公開'}
         </label>
         <input
+          className={`ml-2`}
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
         <input
+          className={`ml-2`}
           type="date"
           name="deadline"
           value={deadline}

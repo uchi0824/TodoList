@@ -52,28 +52,37 @@ export const Todo = ({ todo }) => {
 
   return (
     <div>
-      <p className={'text-orange-400'}>{user_name}</p>
-      <input
-        value={title}
-        onChange={(event) => setTitle(event.target.value)}
-        onBlur={onUpdateTitle}
-      />
-      <input
-        type="date"
-        value={deadline}
-        onChange={(event) => setDeadline(event.target.value)}
-        onBlur={onUpdateDeadline}
-      />
-      <input
-        type="checkbox"
-        checked={status === 2}
-        onChange={() => {
-          setStatus(status === 2 ? 1 : 2)
-          onUpdateStatus()
-        }}
-      ></input>
       <div>
-        <button onClick={onDelete}>{'Delete'}</button>
+        <p className={'text-orange-400'}>{user_name}</p>
+        <input
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+          onBlur={onUpdateTitle}
+        />
+        <input
+          className={`ml-2`}
+          type="date"
+          value={deadline}
+          onChange={(event) => setDeadline(event.target.value)}
+          onBlur={onUpdateDeadline}
+        />
+        <input
+          className={'ml-4'}
+          type="checkbox"
+          checked={status === 2}
+          onChange={() => {
+            setStatus(status === 2 ? 1 : 2)
+            onUpdateStatus()
+          }}
+        ></input>
+        <button
+          className={
+            'border rounded-full bg-red-500 px-4 hover:bg-red-500 hover:text-white ml-4'
+          }
+          onClick={onDelete}
+        >
+          {'削除'}
+        </button>
       </div>
     </div>
   )

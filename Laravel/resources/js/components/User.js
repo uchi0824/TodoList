@@ -3,15 +3,15 @@ import React, { useState } from 'react'
 export const User = ({ user }) => {
   const [name, setName] = useState(user.name)
   const [password, setPassword] = useState('')
-  const [confirmpassword, setConfirmPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [currentPassword, setCurrentPassword] = useState('')
 
   const onUpdatePassword = () => {
-    if (password !== confirmpassword) {
+    if (password !== confirmPassword) {
       alert('パスワードが一致しません')
       return
     }
-    if (password === '' || confirmpassword === '' || currentPassword === '') {
+    if (password === '' || confirmPassword === '' || currentPassword === '') {
       alert('パスワードが入力されていません')
       return
     }
@@ -21,7 +21,7 @@ export const User = ({ user }) => {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ password, confirmpassword, currentPassword }),
+      body: JSON.stringify({ password, confirmPassword, currentPassword }),
     })
   }
 
@@ -36,6 +36,7 @@ export const User = ({ user }) => {
 
   return (
     <div>
+      <h1 className={`mb-3`}>パスワード更新</h1>
       <div>
         <input
           value={currentPassword}
@@ -43,18 +44,20 @@ export const User = ({ user }) => {
           placeholder={'現在のパスワード'}
         />
         <input
+          className={`ml-2`}
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           placeholder={'新しいパスワード'}
         />
         <input
-          value={confirmpassword}
+          className={`ml-2`}
+          value={confirmPassword}
           onChange={(event) => setConfirmPassword(event.target.value)}
           placeholder={'新しいパスワード(確認用)'}
         />
         <button
           className={
-            'border rounded-full  px-4 hover:bg-blue-500 hover:text-white ml-4'
+            'border rounded-full bg-blue-500  px-4 hover:bg-blue-500 hover:text-white ml-4'
           }
           onClick={onUpdatePassword}
         >
@@ -68,7 +71,7 @@ export const User = ({ user }) => {
           }
           onClick={onDelete}
         >
-          {'アカウント削除'}
+          {'アカウントを削除'}
         </button>
       </div>
     </div>
