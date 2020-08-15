@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PasswordRequest;
 use App\Todo;
 use App\User;
 use Illuminate\Http\Request;
@@ -51,12 +52,21 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\PasswordRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(PasswordRequest $request, User $user)
     {
+        //現在のパスワードが正しいかを調べる
+        if (!(Hash::check($request->get('currentPassword'), Auth::user()->password))) {
+            return redirect()->back();
+        }
+        //現在のパスワードと新しいパスワードが違っているかを調べる
+        if (strcmp($request->get('currentPassword'), $request->get('password')) == 0) {
+            return redirect()->back();
+        }
+
         if ($request->input('password') != '') {
             $user->password = Hash::make($request->input('password'));
         }

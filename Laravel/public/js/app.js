@@ -72048,7 +72048,7 @@ var Todo = function Todo(_ref) {
     });
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: 'text-orange-400'
   }, user_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     value: title,
@@ -72057,6 +72057,7 @@ var Todo = function Todo(_ref) {
     },
     onBlur: onUpdateTitle
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "ml-2",
     type: "date",
     value: deadline,
     onChange: function onChange(event) {
@@ -72064,15 +72065,17 @@ var Todo = function Todo(_ref) {
     },
     onBlur: onUpdateDeadline
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: 'ml-4',
     type: "checkbox",
     checked: status === 2,
     onChange: function onChange() {
       setStatus(status === 2 ? 1 : 2);
       onUpdateStatus();
     }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: 'border rounded-full bg-red-500 px-4 hover:bg-red-500 hover:text-white ml-4',
     onClick: onDelete
-  }, 'Delete')));
+  }, '削除')));
 };
 
 /***/ }),
@@ -72195,11 +72198,13 @@ var TodoCreate = function TodoCreate() {
       return setIsPublic('1');
     }
   }), '公開'), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+    className: "ml-2",
     value: title,
     onChange: function onChange(event) {
       return setTitle(event.target.value);
     }
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+    className: "ml-2",
     type: "date",
     name: "deadline",
     value: deadline,
@@ -72260,7 +72265,11 @@ var TodoPage = function TodoPage() {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, 'empty...');
   }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TodoCreate__WEBPACK_IMPORTED_MODULE_5__["TodoCreate"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, todos.map(function (todo) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: 'mb-4'
+  }, "\u65B0\u898FToDo\u4F5C\u6210"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TodoCreate__WEBPACK_IMPORTED_MODULE_5__["TodoCreate"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: 'mb-3 mt-3'
+  }, "ToDoList"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, todos.map(function (todo) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       key: todo.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Todo__WEBPACK_IMPORTED_MODULE_4__["Todo"], {
@@ -72358,7 +72367,7 @@ var User = function User(_ref) {
 
   var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
       _useState6 = _slicedToArray(_useState5, 2),
-      confirmpassword = _useState6[0],
+      confirmPassword = _useState6[0],
       setConfirmPassword = _useState6[1];
 
   var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(''),
@@ -72367,12 +72376,12 @@ var User = function User(_ref) {
       setCurrentPassword = _useState8[1];
 
   var onUpdatePassword = function onUpdatePassword() {
-    if (password !== confirmpassword) {
+    if (password !== confirmPassword) {
       alert('パスワードが一致しません');
       return;
     }
 
-    if (password === '' || confirmpassword === '' || currentPassword === '') {
+    if (password === '' || confirmPassword === '' || currentPassword === '') {
       alert('パスワードが入力されていません');
       return;
     }
@@ -72385,7 +72394,7 @@ var User = function User(_ref) {
       },
       body: JSON.stringify({
         password: password,
-        confirmpassword: confirmpassword,
+        confirmPassword: confirmPassword,
         currentPassword: currentPassword
       })
     });
@@ -72402,31 +72411,35 @@ var User = function User(_ref) {
     });
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "mb-3"
+  }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u66F4\u65B0"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     value: currentPassword,
     onChange: function onChange(event) {
       return setCurrentPassword(event.target.value);
     },
     placeholder: '現在のパスワード'
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    className: "ml-2",
     value: password,
     onChange: function onChange(event) {
       return setPassword(event.target.value);
     },
     placeholder: '新しいパスワード'
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    value: confirmpassword,
+    className: "ml-2",
+    value: confirmPassword,
     onChange: function onChange(event) {
       return setConfirmPassword(event.target.value);
     },
     placeholder: '新しいパスワード(確認用)'
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: 'border rounded-full  px-4 hover:bg-blue-500 hover:text-white ml-4',
+    className: 'border rounded-full bg-blue-500  px-4 hover:bg-blue-500 hover:text-white ml-4',
     onClick: onUpdatePassword
   }, '更新')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: 'border rounded-full bg-red-500 px-4 hover:bg-red-600 hover:text-white mt-4',
     onClick: onDelete
-  }, 'アカウント削除')));
+  }, 'アカウントを削除')));
 };
 
 /***/ }),

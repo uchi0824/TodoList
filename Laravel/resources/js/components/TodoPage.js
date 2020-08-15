@@ -21,7 +21,9 @@ export const TodoPage = () => {
 
   return (
     <div>
+      <h1 className={'mb-4'}>新規ToDo作成</h1>
       <TodoCreate />
+      <h1 className={'mb-3 mt-3'}>ToDoList</h1>
       <ul>
         {todos.map((todo) => {
           return (
