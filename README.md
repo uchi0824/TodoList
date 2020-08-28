@@ -122,47 +122,37 @@ Homestead.yaml に記述した IPアドレスにブラウザからアクセス�
 
 # Usage
 
-### ToDoListを使用するにはまず、Registerページで必要事項を入力しアカウントを登録して下さい。
+### ログイン
+ToDoListを使用するにはまず、Registerページで必要事項を入力しアカウントを登録して下さい。
 
-### ログインページで登録したアカウント情報を入力しログインして下さい。
+ログインページで登録したアカウント情報を入力しログインして下さい。
 
-### ログインに成功するとToDoPageが表示され、登録済みのToDoが表示されます。
+ログインに成功するとToDoPageが表示され、登録済みのToDoが表示されます。
 
-### ボタンを押すことでtodoの表示が切り替えられます。
+ヘッダーのドロップダウンメニューから下記のそれぞれのページへ遷移できます。
 
-例えば完了表示ボタンを押すと完了したtodoのみが表示されます。
+### ToDoPage
 
-### 新規todoが登録できます。
+ボタンを押すことでtodoの表示が切り替えられます。例えば完了表示ボタンを押すと完了したtodoのみが表示されます。
 
-公開か非公開を選び、todoのタイトルを入力して下さい。
+新規todoが登録できます。公開か非公開を選び、todoのタイトルを入力して下さい。
 
-次に期限日を決めてCreateボタンで登録して下さい。
+次に期限日を決めてCreateボタンで登録して下さい。登録したtodoがlistに追加されます。
 
-登録したtodoがlistに追加されます。
+未完ボタンをクリックすると完了に表示が変わり、完了ボタンをクリックすると未完に変わります。このボタンでtodoの状態を表示することができます。
 
-### 非公開で登録した場合は、ヘッダーのドロップダウンメニューの中の、
+todoをクリックすると登録済みのtodoを編集できます。タイトルをクリックし編集すると、後はカーソルが離れた時点で更新されます。
 
-ToDoList（非公開）に追加されます。
+チェクボックスにチェックを入れチェックしたtodoを一括削除ボタンを押すと選択したtodoが一括削除できます。
 
-非公開で登録したçはログインユーザーのみが、閲覧可能となっています。
+削除ボタンで個別のtdoの削除も可能です。
 
-### todoをクリックすると登録済みのtodoを編集できます。
 
-タイトルをクリックし編集するだけで、後はカーソルが離れた時点で更新されます。
+### ToPrivatePage
 
-### 完了ボタン
+非公開で登録した場合は、ヘッダーのドロップダウンメニューの中の、ToDoList（非公開）に追加されます。
 
-未完ボタンをクリックすると完了に表示が変わります。
-
-完了ボタンをクリックすると未完に変わります。
-
-このボタンでtodoの状態を表示することができます。
-### 一括削除
-チェクボックスにチェックを入れチェックしたtodoを一括削除ボタンを押すと
-
-選択したtodoが一括削除できます。
-
-削除ボタンで個別の削除も可能です。
+非公開で登録したtodoはログインユーザーのみが、閲覧可能となっています。
 
 ### パスワード更新・アカウント削除
 
@@ -170,20 +160,12 @@ ToDoList（非公開）に追加されます。
 
 アカウントを削除ボタンを押してアカウントの削除もできます。
 
+### ログアウト
 
-# Author
+ヘッダーのドロップダウンメニューからログアウトして下さい。
 
-* 内村圭宏
-* ラテラルシンキング
-* uchimura.y@lateral-t.co.jp
+### api仕様書
 
-Thank you!
-
-
-# api仕様書
-
-
----
 title: API Reference
 
 language_tabs:
@@ -198,7 +180,7 @@ toc_footers:
 - <a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a>
 ---
 <!-- START_INFO -->
-# Info
+### Info
 
 Welcome to the generated API reference.
 [Get Postman Collection](http://localhost/docs/collection.json)
@@ -209,7 +191,7 @@ Welcome to the generated API reference.
 
 
 <!-- START_2b6e5a4b188cb183c7e59558cce36cb6 -->
-## Display a listing of the resource.
+### Display a listing of the resource.
 
 > Example request:
 
@@ -247,7 +229,7 @@ fetch(url, {
 <!-- END_2b6e5a4b188cb183c7e59558cce36cb6 -->
 
 <!-- START_667c2a22e03ef893e43f745d79214fb4 -->
-## Display a listing of the resource.
+### Display a listing of the resource.
 
 > Example request:
 
@@ -339,7 +321,7 @@ fetch(url, {
 <!-- END_667c2a22e03ef893e43f745d79214fb4 -->
 
 <!-- START_cf3f5f8a2cd128c5688b5d9572796ba6 -->
-## Store a newly created resource in storage.
+### Store a newly created resource in storage.
 
 > Example request:
 
@@ -377,7 +359,7 @@ fetch(url, {
 <!-- END_cf3f5f8a2cd128c5688b5d9572796ba6 -->
 
 <!-- START_b49e1006f4d3f4054ae66961ec3daf1f -->
-## Display the specified resource.
+### Display the specified resource.
 
 > Example request:
 
@@ -422,7 +404,7 @@ fetch(url, {
 <!-- END_b49e1006f4d3f4054ae66961ec3daf1f -->
 
 <!-- START_723bcc54ef0a64db789a20c80830d621 -->
-## Update the specified resource in storage.
+### Update the specified resource in storage.
 
 > Example request:
 
@@ -462,7 +444,7 @@ fetch(url, {
 <!-- END_723bcc54ef0a64db789a20c80830d621 -->
 
 <!-- START_49a6a0e15eaab59faffeacbedeae6ee5 -->
-## Remove the specified resource from storage.
+### Remove the specified resource from storage.
 
 > Example request:
 
@@ -500,7 +482,7 @@ fetch(url, {
 <!-- END_49a6a0e15eaab59faffeacbedeae6ee5 -->
 
 <!-- START_f0654d3f2fc63c11f5723f233cc53c83 -->
-## Store a newly created resource in storage.
+### Store a newly created resource in storage.
 
 > Example request:
 
@@ -538,7 +520,7 @@ fetch(url, {
 <!-- END_f0654d3f2fc63c11f5723f233cc53c83 -->
 
 <!-- START_ceec0e0b1d13d731ad96603d26bccc2f -->
-## Display the specified resource.
+### Display the specified resource.
 
 > Example request:
 
@@ -581,7 +563,7 @@ fetch(url, {
 <!-- END_ceec0e0b1d13d731ad96603d26bccc2f -->
 
 <!-- START_a4a2abed1e8e8cad5e6a3282812fe3f3 -->
-## Update the specified resource in storage.
+### Update the specified resource in storage.
 
 > Example request:
 
@@ -621,7 +603,7 @@ fetch(url, {
 <!-- END_a4a2abed1e8e8cad5e6a3282812fe3f3 -->
 
 <!-- START_4bb7fb4a7501d3cb1ed21acfc3b205a9 -->
-## Remove the specified resource from storage.
+### Remove the specified resource from storage.
 
 > Example request:
 
@@ -659,7 +641,7 @@ fetch(url, {
 <!-- END_4bb7fb4a7501d3cb1ed21acfc3b205a9 -->
 
 <!-- START_66e08d3cc8222573018fed49e121e96d -->
-## Show the application&#039;s login form.
+### Show the application&#039;s login form.
 
 > Example request:
 
@@ -702,7 +684,7 @@ null
 <!-- END_66e08d3cc8222573018fed49e121e96d -->
 
 <!-- START_ba35aa39474cb98cfb31829e70eb8b74 -->
-## Handle a login request to the application.
+### Handle a login request to the application.
 
 > Example request:
 
@@ -740,7 +722,7 @@ fetch(url, {
 <!-- END_ba35aa39474cb98cfb31829e70eb8b74 -->
 
 <!-- START_e65925f23b9bc6b93d9356895f29f80c -->
-## Log the user out of the application.
+### Log the user out of the application.
 
 > Example request:
 
@@ -778,7 +760,7 @@ fetch(url, {
 <!-- END_e65925f23b9bc6b93d9356895f29f80c -->
 
 <!-- START_ff38dfb1bd1bb7e1aa24b4e1792a9768 -->
-## Show the application registration form.
+### Show the application registration form.
 
 > Example request:
 
@@ -821,7 +803,7 @@ null
 <!-- END_ff38dfb1bd1bb7e1aa24b4e1792a9768 -->
 
 <!-- START_d7aad7b5ac127700500280d511a3db01 -->
-## Handle a registration request for the application.
+### Handle a registration request for the application.
 
 > Example request:
 
@@ -859,7 +841,7 @@ fetch(url, {
 <!-- END_d7aad7b5ac127700500280d511a3db01 -->
 
 <!-- START_d72797bae6d0b1f3a341ebb1f8900441 -->
-## Display the form to request a password reset link.
+### Display the form to request a password reset link.
 
 > Example request:
 
@@ -902,7 +884,7 @@ null
 <!-- END_d72797bae6d0b1f3a341ebb1f8900441 -->
 
 <!-- START_feb40f06a93c80d742181b6ffb6b734e -->
-## Send a reset link to the given user.
+### Send a reset link to the given user.
 
 > Example request:
 
@@ -940,7 +922,7 @@ fetch(url, {
 <!-- END_feb40f06a93c80d742181b6ffb6b734e -->
 
 <!-- START_e1605a6e5ceee9d1aeb7729216635fd7 -->
-## Display the password reset view for the given token.
+### Display the password reset view for the given token.
 
 If no token is present, display the link request form.
 
@@ -985,7 +967,7 @@ null
 <!-- END_e1605a6e5ceee9d1aeb7729216635fd7 -->
 
 <!-- START_cafb407b7a846b31491f97719bb15aef -->
-## Reset the given user&#039;s password.
+### Reset the given user&#039;s password.
 
 > Example request:
 
@@ -1023,7 +1005,7 @@ fetch(url, {
 <!-- END_cafb407b7a846b31491f97719bb15aef -->
 
 <!-- START_b77aedc454e9471a35dcb175278ec997 -->
-## Display the password confirmation view.
+### Display the password confirmation view.
 
 > Example request:
 
@@ -1068,7 +1050,7 @@ fetch(url, {
 <!-- END_b77aedc454e9471a35dcb175278ec997 -->
 
 <!-- START_54462d3613f2262e741142161c0e6fea -->
-## Confirm the given user&#039;s password.
+### Confirm the given user&#039;s password.
 
 > Example request:
 
@@ -1104,5 +1086,18 @@ fetch(url, {
 
 
 <!-- END_54462d3613f2262e741142161c0e6fea -->
+
+
+
+
+
+
+# Author
+
+* 内村圭宏
+* ラテラルシンキング
+* uchimura.y@lateral-t.co.jp
+
+Thank you!
 
 
