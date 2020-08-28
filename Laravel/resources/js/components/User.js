@@ -6,7 +6,7 @@ export const User = ({ user }) => {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [currentPassword, setCurrentPassword] = useState('')
 
-  const onUpdatePassword = () => {
+  const onUpdatePassword = async () => {
     if (password !== confirmPassword) {
       alert('パスワードが一致しません')
       return
@@ -15,7 +15,7 @@ export const User = ({ user }) => {
       alert('パスワードが入力されていません')
       return
     }
-    fetch(`/api/user/${user.id}`, {
+    const response = await fetch(`/api/user/${user.id}`, {
       method: 'PUT',
       headers: {
         Accept: 'application/json',
@@ -23,6 +23,20 @@ export const User = ({ user }) => {
       },
       body: JSON.stringify({ password, confirmPassword, currentPassword }),
     })
+
+    console.log(response)
+
+    if (response.status === 200) {
+      alert('OK')
+
+      return window.location.reload()
+    }
+
+    const json = await response.json()
+
+    console.log(json)
+
+    alert(json.error)
   }
 
   const onDelete = () => {

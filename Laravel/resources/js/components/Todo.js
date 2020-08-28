@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import axios from 'axios'
 import useSWR from 'swr'
 
-export const Todo = ({ todo }) => {
+export const Todo = ({ onCheck, checked, todo }) => {
   const [title, setTitle] = useState(todo.title)
   const [status, setStatus] = useState(todo.status)
   const [deadline, setDeadline] = useState(todo.deadline)
@@ -66,18 +66,24 @@ export const Todo = ({ todo }) => {
           onChange={(event) => setDeadline(event.target.value)}
           onBlur={onUpdateDeadline}
         />
-        <input
-          className={'ml-4'}
-          type="checkbox"
-          checked={status === 2}
-          onChange={() => {
+        <button
+          className={'ml-4 border px-2'}
+          onClick={() => {
             setStatus(status === 2 ? 1 : 2)
             onUpdateStatus()
           }}
-        ></input>
+        >
+          {status === 2 ? '完了' : '未完'}
+        </button>
+        <input
+          className={'ml-4'}
+          type="checkbox"
+          checked={checked}
+          onChange={onCheck}
+        />
         <button
           className={
-            'border rounded-full bg-red-500 px-4 hover:bg-red-500 hover:text-white ml-4'
+            'border rounded-full px-4 hover:bg-red-500 hover:text-white ml-4'
           }
           onClick={onDelete}
         >

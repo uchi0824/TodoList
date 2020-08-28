@@ -60,11 +60,11 @@ class UserController extends Controller
     {
         //現在のパスワードが正しいかを調べる
         if (!(Hash::check($request->get('currentPassword'), Auth::user()->password))) {
-            return redirect()->back();
+            return response()->json(['error' => '現在のパスワードが間違っています'], 500);
         }
         //現在のパスワードと新しいパスワードが違っているかを調べる
         if (strcmp($request->get('currentPassword'), $request->get('password')) == 0) {
-            return redirect()->back();
+            return response()->json(['error' => '現在のパスワードと新しいパスワードが同じです'], 500);
         }
 
         if ($request->input('password') != '') {
