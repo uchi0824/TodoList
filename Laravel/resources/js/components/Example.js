@@ -23,16 +23,6 @@ function Example() {
   )
 }
 
-// function AppUser() {
-// return (
-// <div style={{ margin: '2em' }}>
-// <UserAccount />
-// </div>
-// )
-// }
-
-// export default Example
-
 if (document.getElementById('example')) {
   ReactDOM.render(<Example />, document.getElementById('example'))
 }

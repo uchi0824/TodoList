@@ -19,7 +19,7 @@ export const TodoCreate = () => {
         },
         body: JSON.stringify({ is_public: isPublic, title, deadline }),
       })
-      // window.location.reload()
+      window.location.reload()
       console.log(res)
     } catch (err) {
       console.error(err)
@@ -49,6 +49,7 @@ export const TodoCreate = () => {
           className={`ml-2`}
           value={title}
           onChange={(event) => setTitle(event.target.value)}
+          placeholder={'ToDoタイトル'}
         />
         <input
           className={`ml-2`}

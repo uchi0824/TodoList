@@ -65,7 +65,7 @@
                                         {{ __('Todolist（非公開）') }}
                                     </a>
                                     <a class="dropdown-item" href="/user">
-                                        {{ __('アカウント更新・削除') }}
+                                        {{ __('パスワード更新・アカウント削除') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
