@@ -23,43 +23,57 @@ ToDoListの期限日や完了、未完を確認できる。
 - swr@0.3.0
 
 # 環境開発
-### 1.Vagrant を DOWNLOAD VAGRANT からダウンロードして、インストールしてください。
+### Vagrant 
 
-### VirtualBox を Download VirtualBox からダウンロードして、インストールしてください。
+DOWNLOAD VAGRANT からダウンロードして、インストールしてください。
 
-### ターミナルから下記のコマンドを打って、Homestead vagrant box をダウンロードしてください
+VirtualBox を Download VirtualBox からダウンロードして、インストールしてください。
 
-```vagrant box add laravel/homestead```
+ターミナルから下記のコマンドを打って、Homestead vagrant box をダウンロードしてください
 
-### ホームディレクトリ（/Users/ユーザー名）の直下にディレクトリを作成します。
+```
+$ vagrant box add laravel/homestead
+```
 
-### 作成したディレクトリに移動したら
+ホームディレクトリ（/Users/ユーザー名）の直下にディレクトリを作成します。
+
+作成したディレクトリに移動したら
 
 下記のコマンド打ちHomesteadのファイルをダウンロードします。
 
-```git clone https://github.com/laravel/homestead.git Homestead```
+```
+git clone https://github.com/laravel/homestead.git Homestead
+```
 
 作成したディレクトリの中に Homestead のファイルがダウンロードされます.。
 
-### ダウンロードした Homestead のフォルダに移動してください。
+ダウンロードした Homestead のフォルダに移動してください。
 
 Homestead ディレクトリに移動したら、下記のコマンドを入力してください。
 
-```bash init.sh```
+```
+$ bash init.sh
+```
 
 `Homestead initialized!`と表示され、Homestead.yaml が作成されます。
 
-### ホームディレクトリに移動した後に、
+### ssh鍵
+
+ホームディレクトリに移動した後に、
 
 下記コマンドを打ち、SSH鍵ファイルが存在しないか確認します。
 
-```ls -la I grep .ssh```
+```
+ls -la I grep .ssh
+```
 
 `d_rsa` と `id_rsa.pub` が表示されれば、既にSSH鍵ファイルはあります。
 
 無い方は、作成します。
 
-```ssh-keygen -t rsa```
+```
+$ ssh-keygen -t rsa
+```
 
 Enter file in which to save the key と保存するディレクトリを聞かれるので、そのまま enter を押します。
 
@@ -69,31 +83,41 @@ Enter passphrase パスフレーズを求められますので、任意のパス
 
 これでSSH鍵ファイルが作成されます。
 
-### Homestead.yamlの中の
+### サーバーの起動
+
+Homestead.yamlの中の
 
 folders の mapを書き替えます。
 
-### Homested ディレクトリに移動した後に下記のようにコマンドを入力します。
+Homested ディレクトリに移動した後に下記のようにコマンドを入力します。
 
-```vagrant up```
+```
+$ vagrant up
+```
 
-### vagrant up で仮想マシンは起動されていますので、
+vagrant up で仮想マシンは起動されていますので、
 
 仮想マシンを操作するために仮想マシンにログインします。
 
-```vagrant ssh```
+```
+$ vagrant ssh
+```
 
-### SSHを利用して仮想マシンにログインしたので、次は Code ディレクトリに移動します。
+SSHを利用して仮想マシンにログインしたので、次は Code ディレクトリに移動します。
 
-```cd Code/```
+```
+$ cd Code/
+```
 
-### 次に composer を使って Laravel のファイルをダウンロードします。
+次に composer を使って Laravel のファイルをダウンロードします。
 
 下記は記述例です。
 
-```composer create-project laravel/laravel --prefer-dist ディレクトリ名```
+```
+$ composer create-project laravel/laravel --prefer-dist ディレクトリ名
+```
 
-### Homestead.yaml に記述した IPアドレスにブラウザからアクセスすると下記の Laravel ページが表示されます。
+Homestead.yaml に記述した IPアドレスにブラウザからアクセスすると下記の Laravel ページが表示されます。
 
 
 # Usage
