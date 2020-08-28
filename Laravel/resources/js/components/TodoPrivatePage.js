@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { Todo } from './Todo'
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
-
 export const TodoPrivatePage = () => {
-  const { data: todos } = useSWR('/api/user/{user}', fetcher)
+  const { data: todos } = useSWR('/api/user/{user}')
 
   const [ids, setIds] = useState([])
 

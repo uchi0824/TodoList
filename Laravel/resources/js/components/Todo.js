@@ -1,7 +1,4 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
-import axios from 'axios'
-import useSWR from 'swr'
 
 export const Todo = ({ onCheck, checked, todo }) => {
   const [title, setTitle] = useState(todo.title)
