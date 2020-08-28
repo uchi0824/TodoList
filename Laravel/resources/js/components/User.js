@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 export const User = ({ user }) => {
-  const [name, setName] = useState(user.name)
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [currentPassword, setCurrentPassword] = useState('')

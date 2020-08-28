@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import ReactDOM from 'react-dom'
-import axios from 'axios'
+import React, { useState } from 'react'
 import useSWR from 'swr'
 import { Todo } from './Todo'
 import { TodoCreate } from './TodoCreate'
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
-
 export const TodoPage = () => {
-  const { data: todos } = useSWR('/api/todo', fetcher)
-
+  const { data: todos } = useSWR('/api/todo')
+  // 選択したtodos
   const [ids, setIds] = useState([])
-
-  // const currentStatus = 1
-
+  // todoのフィルター
   const [currentFilter, setCurrentFilter] = useState(null)
 
   if (!todos) {
@@ -33,8 +27,6 @@ export const TodoPage = () => {
 
     window.location.reload()
   }
-
-  console.log('選択したToDo', ids)
 
   const currentTodos = todos.filter((todo) => {
     if (currentFilter === 'done') {
@@ -109,6 +101,7 @@ export const TodoPage = () => {
         })}
       </ul>
       <button
+        onClick={onDeleteTodos}
         className={
           'border px-4 bg-red-500 rounded-full hover:opacity-75 mb-3 mt-3'
         }
