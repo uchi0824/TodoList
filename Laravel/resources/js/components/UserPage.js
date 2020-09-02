@@ -41,14 +41,16 @@ import React from 'react'
 import useSWR from 'swr'
 import { User } from './User'
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
-
 export const UserPage = () => {
+<<<<<<< HEAD
 <<<<<<< HEAD
   return <p className={'text-orange-400'}>{'Hi, here is user page'}</p>
 >>>>>>> feature/uchi
 =======
   const { data: user } = useSWR('/api/user', fetcher)
+=======
+  const { data: user } = useSWR('/api/user')
+>>>>>>> feature/uchi
 
   if (!user) {
     return <p>{'loading..'}</p>

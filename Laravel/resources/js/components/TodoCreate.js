@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom'
-import axios from 'axios'
-import useSWR from 'swr'
+import Axios from 'axios'
 
 export const TodoCreate = () => {
   const [isPublic, setIsPublic] = useState('1')
@@ -9,21 +7,13 @@ export const TodoCreate = () => {
   const [deadline, setDeadline] = useState('')
 
   const onCreate = async () => {
-    try {
-      console.log(isPublic, title, deadline)
-      const res = await fetch(`/api/todo`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ is_public: isPublic, title, deadline }),
-      })
-      window.location.reload()
-      console.log(res)
-    } catch (err) {
-      console.error(err)
-    }
+    console.log(isPublic, title, deadline)
+    await Axios({
+      url: `/api/todo`,
+      method: 'POST',
+      data: { is_public: isPublic, title, deadline },
+    })
+    window.location.reload()
   }
 
   return (
