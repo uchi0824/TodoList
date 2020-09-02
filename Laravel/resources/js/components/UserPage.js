@@ -2,10 +2,8 @@ import React from 'react'
 import useSWR from 'swr'
 import { User } from './User'
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json())
-
 export const UserPage = () => {
-  const { data: user } = useSWR('/api/user', fetcher)
+  const { data: user } = useSWR('/api/user')
 
   if (!user) {
     return <p>{'loading..'}</p>

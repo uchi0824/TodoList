@@ -1,56 +1,48 @@
 import React, { useState } from 'react'
+import Axios from 'axios'
 
 export const Todo = ({ onCheck, checked, todo }) => {
   const [title, setTitle] = useState(todo.title)
   const [status, setStatus] = useState(todo.status)
   const [deadline, setDeadline] = useState(todo.deadline)
-  const [user_name, setUser_name] = useState(todo.user_name)
 
   const onUpdateTitle = () => {
-    fetch(`/api/todo/${todo.id}`, {
+    Axios({
+      url: `/api/todo/${todo.id}`,
       method: 'PUT',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ title }),
+      data: { title },
     })
   }
 
   const onUpdateDeadline = () => {
-    fetch(`/api/todo/${todo.id}`, {
+    Axios({
+      url: `/api/todo/${todo.id}`,
       method: 'PUT',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ deadline }),
+      data: { deadline },
     })
   }
 
   const onUpdateStatus = () => {
-    fetch(`/api/todo/${todo.id}`, {
+    Axios({
+      url: `/api/todo/${todo.id}`,
       method: 'PUT',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ status: status === 2 ? 1 : 2 }),
+      data: { status: status === 2 ? 1 : 2 },
     })
   }
 
-  const onDelete = () => {
-    alert('Delete!')
-    fetch(`/api/todo/${todo.id}`, { method: 'DELETE' }).then((res) => {
-      console.log(res)
-      window.location.reload()
+  const onDelete = async () => {
+    await Axios({
+      url: `/api/todo/${todo.id}`,
+      method: 'DELETE',
     })
+
+    window.location.reload()
   }
 
   return (
     <div>
       <div>
-        <p className={'text-orange-400'}>{user_name}</p>
+        <p className={'text-orange-400'}>{todo.user_name}</p>
         <input
           value={title}
           onChange={(event) => setTitle(event.target.value)}

@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import useSWR from 'swr'
 import { Todo } from './Todo'
 import { TodoCreate } from './TodoCreate'
+import Axios from 'axios'
 
 export const TodoPage = () => {
   const { data: todos } = useSWR('/api/todo')
-  // 選択したtodos
   const [ids, setIds] = useState([])
-  // todoのフィルター
   const [currentFilter, setCurrentFilter] = useState(null)
 
   if (!todos) {
@@ -20,11 +19,9 @@ export const TodoPage = () => {
 
   const onDeleteTodos = async () => {
     const promises = ids.map((id) => {
-      return fetch(`/api/todo/${id}`, { method: 'DELETE' })
+      return Axios({ url: `/api/todo/${id}`, method: 'DELETE' })
     })
-
     await Promise.all(promises)
-
     window.location.reload()
   }
 
@@ -77,24 +74,20 @@ export const TodoPage = () => {
         {currentTodos.map((todo) => {
           return (
             <li key={todo.id}>
-              {/* checked: {ids}が{todo.id}を持っているかどうか */}
               <Todo
+                todo={todo}
                 checked={ids.includes(todo.id)}
                 onCheck={() => {
                   const index = ids.indexOf(todo.id)
-                  // A {ids}が{todo.id}を含まない → {ids}に{todo.id}を追加
                   if (index === -1) {
                     const newIds = [...ids, todo.id]
                     setIds(newIds)
                     return
                   }
-                  // B {ids}が{todo.id}を含む → {ids}から{todo.id}を除外
-                  // ids.splice({消したいインデックス}, 1)
                   const newIds = [...ids]
                   newIds.splice(index, 1)
                   setIds(newIds)
                 }}
-                todo={todo}
               />
             </li>
           )

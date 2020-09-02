@@ -9,7 +9,6 @@ import { TodoPrivatePage } from './components/TodoPrivatePage'
 
 function Example() {
   return (
-    // https://swr.vercel.app/
     <SWRConfig
       value={{
         fetcher: (...args) => fetch(...args).then((res) => res.json()),
@@ -31,5 +30,6 @@ function Example() {
     </SWRConfig>
   )
 }
-
-ReactDOM.render(<Example />, document.getElementById('example'))
+if (document.getElementById('example')) {
+  ReactDOM.render(<Example />, document.getElementById('example'))
+}

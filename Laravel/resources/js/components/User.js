@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Axios from 'axios'
 
 export const User = ({ user }) => {
   const [password, setPassword] = useState('')
@@ -14,37 +15,25 @@ export const User = ({ user }) => {
       alert('パスワードが入力されていません')
       return
     }
-    const response = await fetch(`/api/user/${user.id}`, {
-      method: 'PUT',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ password, confirmPassword, currentPassword }),
+    const response = await Axios({
+      url: `/api/user/${user.id}`,
+      data: { password, confirmPassword, currentPassword },
+      validateStatus: () => true,
     })
 
-    console.log(response)
-
     if (response.status === 200) {
-      alert('OK')
+      alert('OK!')
 
       return window.location.reload()
     }
-
-    const json = await response.json()
-
-    console.log(json)
-
-    alert(json.error)
+    alert(json.data.error)
   }
 
-  const onDelete = () => {
+  const onDelete = async () => {
     const result = window.confirm('削除しますか？')
     if (!result) return
-    fetch(`/api/user/${user.id}`, { method: 'DELETE' }).then((res) => {
-      console.log(res)
-      window.location.reload()
-    })
+    await Axios({ url: `/api/user/${user.id}`, method: 'DELETE' })
+    window.location.reload()
   }
 
   return (
